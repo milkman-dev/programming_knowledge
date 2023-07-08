@@ -180,3 +180,7 @@ colors = ['red', 'yellow', 'green', 'white', 'black', 'blue', 'purple']
 for color in colors:
   count = color_count(color)
   print("There are {count} sold {color} threads today".format(count = count, color = color))
+
+print(20 % 10)
+print(25 % 10)
+print(30 % 10)
