@@ -75,3 +75,35 @@ library = {"The Best Songs": plays, "Sunday Feelings": {}}
 print(library)
 
 # ---
+
+# Access values by key in a dict
+
+zodiac_elements = {"water": ["Cancer", "Scorpio", "Pisces"], "fire": ["Aries", "Leo", "Sagittarius"], "earth": ["Taurus", "Virgo", "Capricorn"], "air":["Gemini", "Libra", "Aquarius"]}
+
+print(zodiac_elements["earth"])
+print(zodiac_elements["fire"])
+
+# .get() method dict.get(key, default_value(if not found))
+
+user_ids = {"teraCoder": 100019, "pythonGuy": 182921, "samTheJavaMaam": 123112, "lyleLoop": 102931, "keysmithKeith": 129384}
+
+tc_id = user_ids.get("teraCoder", 100000)
+
+print(tc_id)
+
+print(user_ids.get("superStackSmash", 100000))
+
+# Removing items from a dict using .pop(item, default value(if not exist))
+# and adding that item value to a variable, if not exist add default value
+
+vailable_items = {"health potion": 10, "cake of the cure": 5, "green elixir": 20, "strength sandwich": 25, "stamina grains": 15, "power stew": 30}
+
+health_points = 20
+
+health_points += available_items.pop("stamina grains", 0)
+
+health_points += available_items.pop("power stew", 0)
+
+health_points += available_items.pop("mystic bread", 0)
+
+print(available_items, health_points)
