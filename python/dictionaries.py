@@ -100,7 +100,7 @@ print(user_ids.get("superStackSmash", 100000))
 
 print(".pop() example")
 
-vailable_items = {"health potion": 10, "cake of the cure": 5, "green elixir": 20, "strength sandwich": 25, "stamina grains": 15, "power stew": 30}
+available_items = {"health potion": 10, "cake of the cure": 5, "green elixir": 20, "strength sandwich": 25, "stamina grains": 15, "power stew": 30}
 
 health_points = 20
 
@@ -157,3 +157,73 @@ spread["future"] = tarot.pop(10)
 
 for key, value in spread.items():
   print("Your {} is the {} card.".format(key, value))
+
+# More practice
+
+letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+points = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 4, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10]
+
+letter_to_points = {letter: point for letter, point in zip(letters, points)}
+
+letter_to_points[" "] = 0
+
+def score_word(word):
+  point_total = 0
+  for letter in word:
+    point_total += letter_to_points.get(letter, 0)
+  return point_total
+
+brownie_points = score_word("BROWNIE")
+
+print(brownie_points)
+
+player_to_words = {"player1": ["BLUE", "TENNIS", "EXIT"], "wordNerd": ["EARTH", "EYES", "MACHINE"], "Lexi Con": ["ERASER", "BELLY", "HUSKY"], "Prof Reader": ["ZAP", "COMA", "PERIOD"]}
+
+player_to_points = {}
+
+'''for player, words in player_to_words.items():
+  player_points = 0
+  for word in words:
+    player_points += score_word(word)
+  player_to_points[player] = player_points'''
+
+# A function that would take in a player and a word, and add that word to the list of words they’ve played
+
+def play_word(player, word):
+  player_to_words[player].append(word.upper())
+
+play_word("player1", "gumball")
+
+# A function that you can call any time a word is played
+
+def update_point_totals(players):
+  for player, words in players.items():
+    total_points = 0
+    for word in words:
+      total_points += score_word(word)
+    player_to_points[player] = total_points
+  return player_to_points
+
+print(update_point_totals(player_to_words))
+
+# Function that gives a score of a specific player
+
+def player_score(player):
+  total_points = 0
+  for word in player_to_words[player]:
+    total_points += score_word(word)
+  return "Player: {} has {} points".format(player, total_points)
+
+print(player_score("player1"))
+
+# Same as last function but returns a dict
+
+def player_score_dict(player):
+  total_points = 0
+  score_card = {}
+  for word in player_to_words[player]:
+    total_points += score_word(word)
+  score_card[player] = total_points
+  return score_card
+
+print(player_score_dict("player1"))
