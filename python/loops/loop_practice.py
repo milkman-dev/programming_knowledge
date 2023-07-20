@@ -36,4 +36,4 @@ print(odd_indices([4, 3, 7, 10, 11, -2]))
 def exponents(bases, powers):
   return [base ** power for base in bases for power in powers]
 
-print(exponents([2, 3, 4], [1, 2, 3]))
+print(exponents([2, 3, 4], [1, 4, 5]))
