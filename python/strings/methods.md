@@ -15,3 +15,5 @@ string.lower() = Lowercases each word inside the string
 "character".join(list_variable) = Joins a list into a string, for this method you must first specify the joining character for example " " for a empty space, then inside the method you must call the variable with the list
 
 .strip() = Strip lets you "strip" characters from the corners of a string, if the method is called with no arguments then it strips the empty spaces at the corners of the string, if you call it with an argument, the argument inside the method is stripped from the corners of the string, you can also use concatenated calls of this method (e.g .strip(":").strip()) <- This would strip the ":" first and then the empty spaces
+
+Hello this is a test to show how git works
